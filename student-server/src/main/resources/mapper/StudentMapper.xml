@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.king.mapper.StudentMapper">
+
+    <select id="getStudentAll" resultType="cn.king.pojo.Student">
+        select *
+        from demo1027.tb_student s
+        <where>
+            <if test="name != null and name!=''">
+                and s.name like concat('%',#{name},'%')
+            </if>
+            <if test="startTime != null ">
+                and s.birthday &gt;= #{startTime}
+            </if>
+            <if test="endTime != null ">
+                and s.birthday &lt;= #{endTime}
+            </if>
+        </where>
+        order by s.id
+    </select>
+</mapper>

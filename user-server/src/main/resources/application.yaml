@@ -1,0 +1,17 @@
+server:
+  port: 8080
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+
+spring:
+  application:
+    name: user
+  datasource:
+    url: jdbc:mysql://localhost:3307/demo1027
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+eureka:
+  client:
+    service-url: # 跟上面一样，需要指向Eureka服务端地址，这样才能进行注册
+      defaultZone: http://localhost:8888/eureka , http://localhost:8899/eureka

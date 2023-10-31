@@ -1,0 +1,21 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: eureka
+  datasource:
+    url: jdbc:mysql://localhost:3307/demo1027
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+
+eureka:
+  client:
+    fetch-registry: false # 由于我们是作为服务端角色，所以不需要获取服务端，改为false，默认为true
+    register-with-eureka: false  # 暂时不需要将自己也注册到Eureka
+    server-url:   # 将eureka服务端指向自己的地址
+      defaultZone: http://localhost:8888/eureka , http://localhost:8899/eureka
+
+  # 开启之前需要修改一下客户端设置（虽然是服务端
